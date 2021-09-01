@@ -30,7 +30,12 @@ function update (event){
 }
 
 
-function iniciarjogo(){
+function iniciarJogo(){
+    if(snake[0].x > 15 * box && direction == "right") snake[0].x = 0;
+    if(snake[0].x < 0 && direction == "left") snake[0].x = 16 * box;
+    if(snake[0].y > 15 * box && direction == "down") snake[0].y = 0;
+    if(snake[0].y < 0 && direction == "up") snake[0].y = 16* box;
+
     criarBG();
     criarCobrinha();
 
@@ -53,4 +58,4 @@ function iniciarjogo(){
 
 }
 
-let jogo = setInterval(iniciarjogo, 100);
+let jogo = setInterval(iniciarJogo, 100);
